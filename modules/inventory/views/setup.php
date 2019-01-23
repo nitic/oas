@@ -53,7 +53,7 @@ class View extends \Gcms\View
             /* ฟังก์ชั่นจัดรูปแบบการแสดงผลแถวของตาราง */
             'onRow' => array($this, 'onRow'),
             /* คอลัมน์ที่ไม่ต้องแสดงผล */
-            'hideColumns' => array('id'),
+            'hideColumns' => array('id','description'),
             /* คอลัมน์ที่สามารถค้นหาได้ */
             'searchColumns' => array('product_no', 'topic'),
             /* ตั้งค่าการกระทำของของตัวเลือกต่างๆ ด้านล่างตาราง ซึ่งจะใช้ร่วมกับการขีดถูกเลือกแถว */
@@ -102,6 +102,10 @@ class View extends \Gcms\View
                     'text' => '{LNG_Unit Price}',
                     'class' => 'center',
                     'sort' => 'price',
+                ),
+                'unit' => array(
+                    'text' => '{LNG_Unit}',
+                    'class' => 'center',
                 ),
                 'category_id' => array(
                     'text' => '{LNG_Category}',

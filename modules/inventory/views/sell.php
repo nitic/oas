@@ -57,7 +57,8 @@ class View extends \Gcms\View
             'placeholder' => Language::replace('Fill some of the :name to find', array(':name' => '{LNG_Company name}, {LNG_Name}, {LNG_Email}, {LNG_Phone}')),
             'title' => '{LNG_Customer}',
             'value' => $index->customer,
-            'autofocus' => true,
+            'comment' => '{LNG_Do not fill if user pay cash}',
+            //'autofocus' => true,
         ));
         // add_customer
         $groups->add('button', array(
@@ -74,13 +75,16 @@ class View extends \Gcms\View
         ));
         $groups = $fieldset->add('groups');
         // order_no
+
+        $order_no = (empty($index->order_no))? 'Rพผท2-' : $index->order_no;
         $groups->add('text', array(
             'id' => 'order_no',
             'labelClass' => 'g-input icon-number',
             'itemClass' => 'width50',
-            'label' => '{LNG_Order No.}',
+            'label' => '{LNG_Sell No.}',
             'placeholder' => '{LNG_Leave empty for generate auto}',
-            'value' => $index->order_no,
+            'value' => $order_no,
+    
         ));
         // order_date
         $order_date = explode(' ', $index->order_date);
@@ -88,7 +92,7 @@ class View extends \Gcms\View
             'id' => 'order_date',
             'labelClass' => 'g-input icon-calendar',
             'itemClass' => 'width50',
-            'label' => '{LNG_Transaction date}',
+            'label' => '{LNG_Sell Date}',
             'value' => $order_date[0],
         ));
         $groups = $fieldset->add('groups');
@@ -140,7 +144,7 @@ class View extends \Gcms\View
             $table .= '</tr>';
         }
         $table .= '</tbody><tfoot>';
-        $table .= '<tr><td colspan=3 rowspan=8 class=top><label for=comment>{LNG_Annotation}</label><span class="g-input icon-file"><textarea rows=6 name=comment id=comment>' . $index->comment . '</textarea></span></td>';
+        $table .= '<tr><td colspan=3 rowspan=8 class=top><label for=comment>{LNG_Sell Detail}</label><span class="g-input icon-file"><textarea rows=6 name=comment id=comment>' . $index->comment . '</textarea></span></td>';
         $table .= '<td class=right>{LNG_Total}</td><td colspan=2 class=right id=sub_total>0.00</td><td class=right>' . $currency_unit . '</td></tr>';
         $table .= '<tr><td class=right><label for=discount_percent>{LNG_Discount}<span class=tablet> (F8)</span></label></td>';
         $table .= '<td class=wlabel><span class="g-input"><input type=text class=currency name=discount_percent id=discount_percent value="' . $index->discount_percent . '" title="{LNG_Discount} %" size=5></span><span class=label>%</span></td>';

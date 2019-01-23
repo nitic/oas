@@ -85,6 +85,7 @@ class View extends \Gcms\View
             'label' => '{LNG_Category}',
             'placeholder' => Language::replace('Fill some of the :name to find', array(':name' => '{LNG_Category}')),
             'value' => $product['category'],
+            'comment' => '{LNG_Do not use Thai alphabet is ph}',
         ));
         // count_stock
         $groups->add('select', array(

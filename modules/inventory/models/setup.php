@@ -37,7 +37,7 @@ class Model extends \Kotchasan\Model
             ->groupBy('product_id');
 
         return static::createQuery()
-            ->select('P.product_no', 'P.topic', 'P.description', 'P.price', 'P.category_id', 'P.id', Sql::create('CASE WHEN P.`count_stock`=1 THEN S.`quantity` ELSE NULL END AS `quantity`'))
+            ->select('P.product_no', 'P.topic', 'P.description', 'P.price', 'P.unit','P.category_id', 'P.id', Sql::create('CASE WHEN P.`count_stock`=1 THEN S.`quantity` ELSE NULL END AS `quantity`'))
             ->from('product P')
             ->join(array($sql, 'S'), 'LEFT', array('S.product_id', 'P.id'));
     }

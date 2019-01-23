@@ -106,7 +106,7 @@ class Config extends \Kotchasan\Config
     /**
      * @var string
      */
-    public $password_key = '1245678912';
+    public $password_key = 'kengi454244012';
 
     /**
      * ไดเร็คทอรี่ template ที่ใช้งานอยู่ ตั้งแต่ DOCUMENT_ROOT
