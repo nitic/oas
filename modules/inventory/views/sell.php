@@ -76,7 +76,7 @@ class View extends \Gcms\View
         $groups = $fieldset->add('groups');
         // order_no
 
-        $order_no = (empty($index->order_no))? 'Rพผท2-' : $index->order_no;
+        $order_no = (empty($index->order_no))? '' : $index->order_no;
         $groups->add('text', array(
             'id' => 'order_no',
             'labelClass' => 'g-input icon-number',
